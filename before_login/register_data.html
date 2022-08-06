@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>REGISTER</title>
+    <link rel="icon" href="https://www.nvsp.in/Content/images/eci-icon.ico" type="image/x-icon">
+	<meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./register_data/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link href="./register_data/bootstrap-flatly.min.css" rel="stylesheet">
+	<link href="./register_data/style.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="./register_data/all.min.css" integrity="sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link rel="stylesheet" href="./register_data/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer">		<link href="./register_data/animations.css" rel="stylesheet">
+	<link href="./register_data/fonts.css" rel="stylesheet">
+	<link href="./register_data/main.css" rel="stylesheet" class="color-switcher-link">
+	<script src="./register_data/jquery.js.download" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="./register_data/bootstrap.min.js.download" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+	<link href="./register_data/bootstrap.min(1).css" rel="stylesheet">
+		 <style>
+        /*.form-control {
+          padding: 6px 5px !important;
+        }*/
+    </style>
+</head>
+<body>
+    <div id="dvLoading2" class="lds-dual-ring" style="z-index: 7000; display: none;"></div>
+    <div class="clearfix"></div>
+	<div id="knowAcModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-md-11 text-center">
+                            <h4 class="modal-title">
+                                Map
+                            </h4>
+                        </div>
+                        <div class="col-md-1 text-right">
+                            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="know_my_AC_partial"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- eof .modal -->
+    <div id="canvas">
+        <div id="box_wrapper">
+
+            <div class="page_header_wrapper header_white" style="height: 100px;"><header class="page_header header_white toggler_right">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12">
+                            <a href="index.html" class="logo top_logo">
+
+                                <img src="./register_data/logo.png">
+                            </a>
+                        </div>
+                        <div class="col-md-7 col-sm-12">
+                            <nav class="mainmenu_wrapper text-right">
+                                <ul class="mainmenu sf-menu">
+                                    <li class="active">
+                                        <a href="index.html">Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="About.html">About Us</a>
+                                    </li>
+                                        <li>
+                                            <a href="Login.html" id="login">Login</a>
+                                        </li>
+                                </ul>
+                            </nav>
+                            <span class="toggle_menu">
+                                <span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </header></div>
+            <section class="ls section-content-min-height toppadding_10">
+                <div class="container">
+                    <ul class="breadcrumb">  
+                    </ul>
+                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="form-group" style="display:none; background-color:red; text-align:center;" id="alert">
+                            <h4><font color="white" id="statusmessagelabel"></font></h4>
+                        </div>
+                        <div class="bottommargin_10 col-md-12 text-center">
+                            <img src='./register_data/p1.png'>
+                        </div>
+						<form>
+							<div class="form-group">
+                                <div class="col-md-12">
+                                    <div class="col-md-4">
+
+                                        <input data-val="true" data-val-required="The isEpicAvailable field is required." id="isEpicAvailable" name="isEpicAvailable" type="radio" value="True">
+                                        <label for="isEpicAvailable">
+                                            I have EPIC number
+                                        </label>
+
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <input id="isEpicNotAvailable" name="isEpicAvailable" type="radio" value="False" checked="checked">
+                                        <label for="isEpicNotAvailable">
+                                            I don't have EPIC number
+                                        </label>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="divName">
+
+                                <div class="form-group">
+
+                                    <div class="col-md-12" style="margin-bottom:5px;">
+                                        <div class="col-md-3">
+                                            <label>
+                                                First Name
+                                            </label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="input-group input-group-sm">
+                                                <span style="width:5%;float:left;"><img src='./register_data/p2.png' style="height:25px;width:25px;"></span>
+                                                <input style="width:95%;"autocomplete="off" class="form-control" data-val="true" data-val-regex="Input Data is not valid." data-val-regex-pattern="^[a-zA-Z 0&#39;]*$" id="firstName"  placeholder="Enter first name" type="text" value="" required="required">
+                                            </div>
+                                            <div class="text-danger text-center">
+                                                <span class="field-validation-valid field-validation-error" data-valmsg-for="firstName" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="col-md-12" style="margin-bottom:5px;">
+                                        <div class="col-md-3">
+                                            <label>
+                                                Last Name
+                                            </label>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="input-group input-group-sm">
+                                                <span style="width:5%;float:left;"><img src='./register_data/p2.png' style="height:25px;width:25px;"></span>
+                                                <input style="width:95%;" autocomplete="off" class="form-control" data-val="true" data-val-regex="Input Data is not valid." data-val-regex-pattern="^[a-zA-Z 0&#39;]*$" id="lastName" name="lastName" placeholder="Enter last name" type="text" value="">
+                                            </div>
+                                            <div class="text-danger text-center">
+                                                <span class="field-validation-valid field-validation-error" data-valmsg-for="lastName" data-valmsg-replace="true"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group" id="divEpic" style="display: none;">
+
+                                <div class="col-md-12" style="margin-bottom:5px;">
+                                    <div class="col-md-3">
+                                        <label>Epic Number</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="input-group input-group-sm">
+                                            <span style="width:5%;float:left;"><img src='./register_data/p2.png' style="height:25px;width:25px;"></span>
+                                            <input style="width:95%;" autocomplete="off" class="form-control" data-val="true" data-val-regex="Please enter valid epic no" data-val-regex-pattern="^[A-Za-z0-9]+[\\/\-]*[A-Za-z0-9\/\-]*$" id="user_epicno" name="Epic_no" placeholder="Enter EPIC Number" type="text" value="">
+                                        </div>
+                                        <div class="text-danger text-center">
+                                            <span class="field-validation-valid field-validation-error" data-valmsg-for="Epic_no" data-valmsg-replace="true"></span>
+                                 
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-md-12" style="margin-bottom:5px;">
+                                    <div class="col-md-3">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="input-group input-group-sm">
+                                            <span style="width:5%;float:left;"><img src='./register_data/p3.png' style="height:25px;width:25px;"></span>
+                                            <input style="width:95%;"autocomplete="off" class="form-control" data-val="true" data-val-regex="Please enter valid Email" data-val-regex-pattern="^(([\w-+]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)|[\w]{0})$" id="Email" name="Email" placeholder="Enter Email" type="text" value="">
+                                        </div>
+                                        <div class="text-danger text-center">
+                                            <span class="field-validation-valid field-validation-error" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-md-12" style="margin-bottom:5px;">
+                                    <div class="col-md-3">
+                                        <label>Password</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="input-group input-group-sm">
+                                            <span style="width:5%;float:left;"><img src='./register_data/p4.png' style="height:25px;width:25px;"></span>
+                                            <input style="width:95%;" autocomplete="off" class="form-control" data-val="true" data-val-required="The Password field is required." id="Password" name="Password" placeholder="Enter Password" required="required" type="password">
+                                        </div>
+                                        <div class="text-danger text-center">
+                                            <span class="field-validation-valid field-validation-error" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <div class="col-md-12" style="margin-bottom:5px;">
+                                    <div class="col-md-3">
+                                        <label>Confirm Password</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <div class="input-group input-group-sm">
+                                            <span style="width:5%;float:left;"><img src='./register_data/p4.png' style="height:25px;width:25px;"></span>
+                                            <input style="width:95%;"autocomplete="off" class="form-control" data-val="true" data-val-equalto="The password and confirmation password do not match." data-val-equalto-other="*.Password" data-val-required="The Confirm password field is required." id="ConfirmPassword" name="ConfirmPassword" placeholder="Confirm Password" required="required" type="password">
+                                        </div>
+                                        <div class="text-danger text-center">
+                                            <span class="field-validation-valid field-validation-error" data-valmsg-for="ConfirmPassword" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-12" style="margin-bottom:5px;">
+                                    <button id="register_btn" class="btn btn-primary btn-block login-button">
+                                        Register
+                                    </button>
+
+                                </div>
+                            </div>
+</form>                        <div class="main-login main-center" style="max-height:100%">
+
+
+                            <div>
+                                Password Pattern :
+
+                                <ul>
+                                    <li>Password must be at least 6 characters long.</li>
+                                    <li> Passwords must have at least one digit ('0'-'9').</li>
+                                    <li>Passwords must have at least one special character.</li>
+                                    <li>Passwords must have at least one uppercase ('A'-'Z').</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    
+
+    <div id="mymodal" class="modal fade " role="dialog" style="vertical-align: middle;">
+        <div class="modal-dialog" style="width:75%">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header" style="padding:4px;">
+                    <button type="button" class="close" data-dismiss="modal">
+                        ×
+                    </button>
+                    <div class="modal-title" id="dvmodal_Title" style="font-size:medium;">
+                    </div>
+                </div>
+                <div id="dvmodalbody" class="modal-body row row-group" style="vertical-align: middle;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            </section>
+
+            <footer class="page_footer ds columns_padding_25">
+                <div class="container-fluid toppadding_20">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-12">
+                            <div class="widget widget_text bottommargin_10">
+                                <a href="index.html" class="logo top_logo small_logo 0">
+
+                                    <span class="logo_text">
+                                        <span class="site-name black">
+                                            <span class="highlight">Contact</span> Us
+                                        </span>
+                                    </span>
+                                </a>
+                                <p class="bottommargin_0">
+                                    For details of eligibility criteria or any other additional information related to electoral forms,
+                                    kindly visit <a href="#" rel="noopener noreferrer"><b class="link animate">#</b></a><b class="link animate">
+                                </b></p><b class="link animate">
+                                <p class="bottommargin_0">
+                                    For any other technical feedback or issues on the portal kindly send your feedback to
+                                    
+                                    <a href="#" target="_top" rel="noopener noreferrer">
+                                        <b class="techlink animate">ECI Technical Support
+                                    </b></a><b class="techlink animate">
+                                </b></p><b class="techlink animate">
+                                <div>
+
+                                    <div class="media small-teaser">
+                                        <div class="media-left">
+                                            <img src="./Register_data/p5.png" style="width:18px;height:18px;">
+                                        </div>
+                                        <div class="media-body">
+                                            Toll free Number :1800111950
+                                        </div>
+                                    </div>
+                                </div>
+                            </b></b></div><b class="link animate"><b class="techlink animate">
+                        </b></b></div><b class="link animate"><b class="techlink animate">
+                        <div class="col-md-5 col-sm-6">
+                            <div class="widget widget_popular">
+
+                                <span class="logo_text logo">
+                                    <span class="site-name black">
+                                        <span class="highlight">Other</span> Links
+                                    </span>
+                                </span>
+                                <ul class="media-list">
+                                    <li class="media">
+                                        
+                                        <div class="media-body">
+                                            <h4>
+                                                <a href="#" target="_blank" rel="noopener noreferrer">
+                                                    Election Commission of India
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        
+                                        <div class="media-body">
+                                            <h4>
+                                                <a href="#">
+                                                    Chief Electoral Officer
+                                                </a>
+                                            </h4>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </b></b></div><b class="link animate"><b class="techlink animate">
+                </b></b></div><b class="link animate"><b class="techlink animate">
+            </b></b></footer><b class="link animate"><b class="techlink animate">
+
+            <section class="ds page_copyright section_padding_15 with_top_border_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center text-white">
+                            <p>National Voter's Service Portal © Copyright 2019. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </b></b></div><b class="link animate"><b class="techlink animate">
+    </b></b></div><b class="link animate"><b class="techlink animate">
+    <script src="./register_data/jquery-ui.min.js.download" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+    <script src="./register_data/compressed.js.download" async=""></script>
+    <script src="./register_data/main.js.download"></script>
+    <script src="./register_data/jquery.validate.min.js.download" integrity="sha512-UdIMMlVx0HEynClOIFSyOrPggomfhBKJE28LKl8yR3ghkgugPnG6iLfRfHwushZl1MOPSY6TsuBDGPK2X4zYKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./register_data/jquery.toast.min.js.download" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./register_data/jquery.toast.min.css" integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <script src="./register_data/toasterNotifications.js.download"></script>
+    <script src="./register_data/bootstrap.min.js.download" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="./register_data/jquery-2.1.4.js.download"></script>
+    <script src="./register_data/jquery.unobtrusive-ajax.min.js.download"></script>
+    <script src="./register_data/bootstrap.min.js(1).download"></script>
+    <script src="./register_data/toastr.js.download"></script>
+    <link href="./register_data/toastr.css" rel="stylesheet">
+    <script src="./register_data/sha512.min.js.download"></script>
+    <script>
+
+        $(document).ready(function () {
+            $("#isEpicNotAvailable").attr("checked", "checked");
+            if ($("#isEpicAvailable").prop("checked") == true) {
+                $("#divEpic").show();
+                $("#divName").hide();
+                $("#user_epicno").attr("Required", "Required");
+                $("#firstName").removeAttr("Required");
+                $("#lastName").removeAttr("Required");
+            }
+            else if ($("#isEpicAvailable").prop("checked") == false) {
+                $("#divEpic").hide();
+                $("#divName").show();
+                $("#firstName").attr("Required", "Required");
+
+                $("#user_epicno").removeAttr("Required");
+            }
+        });
+		$('#register_btn').click(function () {
+			if(validate()==false){
+				return false;
+			}
+			var rd=document.getElementsByName("isEpicAvailable");
+			var f_name=document.getElementById("firstName").value;
+			var l_name=document.getElementById("lastName").value;
+			var ep_no=document.getElementById("user_epicno").value;
+			var em=document.getElementById("Email").value;
+			var ps=document.getElementById("Password").value;
+			var rd_val='';
+			if(rd[0].checked){
+				rd_val=rd[0].value;
+			}
+			else{
+				rd_val=rd[1].value;
+			}
+			var url = './register_data/add_user.php?isepic='+rd_val+'&first='+f_name+'&last='+l_name+'&email='+em+'&epic='+ep_no+'&pwrd='+ps;
+			$.ajax({
+				url: url,
+				success: function (response) {
+					if(response=="epic_exist"){
+							alert('Epic is already exist!');
+					}else if(response=="successful"){
+						alert("registration successfully.");
+						document.location='Login.html';
+					}else{
+						alert(response);
+					}
+				},
+				error: function (error) { }
+			});
+		});
+    </script>
+    <script>
+		$('input[type=radio][name=isEpicAvailable]').change(function () {
+			if ($(this).val() == 'True') {
+                 $("#divEpic").show();
+                 $("#firstName").val('');
+                 $("#lastName").val('');
+                 $("#divName").hide();
+                 $("#user_epicno").attr("Required", "Required");
+                 $("#firstName").removeAttr("Required");
+                 $("#lastName").removeAttr("Required");
+             }
+             else if ($(this).val() == 'False') {
+                 $("#divEpic").hide();
+                 $("#user_epicno").val('');
+                 $("#divName").show();
+                 $("#firstName").attr("Required", "Required");
+               //  $("#lastName").attr("Required", "Required");
+                 $("#user_epicno").removeAttr("Required");
+             }
+         });
+
+        function isNumber(evt) {
+             evt = (evt) ? evt : window.event;
+             var charCode = (evt.which) ? evt.which : evt.keyCode;
+             if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                 return false;
+             }
+             return true;
+         }
+        function validate() {
+			if ($("#Password").val() == "" || $("#ConfirmPassword").val() == "") {
+				toastr.error('Please enter Password');
+				return false;
+			}
+			else if ($("#Password").val() != $("#ConfirmPassword").val())
+			{
+				toastr.error('The password and confirmation password do not match.');
+				return false;
+			}
+			else if ($("#Password").val() != "" || $("#ConfirmPassword").val() != "") {
+
+				var regex = new RegExp("^(?=.*[A-Z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{6,15}$");
+				var res_pass = regex.test($("#Password").val());
+				var res_cpass = regex.test($("#ConfirmPassword").val());
+				if (res_pass && res_cpass)
+				{
+					return true;
+				}
+				else {
+					toastr.error("Password does not match password pattern.");
+					return false;
+				}
+			}
+        }
+    </script>
+    <script type="text/javascript">
+        $(".Datevalidate").change(function () {
+            var dateInput = $(this).val();
+            if (dateInput.length == 10) {
+                var dateReg = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{4})$/;
+                var data = dateInput.match(dateReg)
+                if (!data) {
+                    showWarningToast('Please enter valid date.');
+                    $(this).val('');
+                }
+            }
+            else {
+                showWarningToast('Please enter valid date.');
+                $(this).val('');
+            }
+        });
+
+        $('#btnIncFont').click(function () {
+            //
+            var selectedFont = $('body').css('font-size');
+            if (selectedFont != "18px")    /*New code to fix the bug of increase font size Reena Rana 29 Aug 2018*/
+                $('body').css('font-size', (parseInt(selectedFont) + 1));
+            else {
+                console.log("inseide else" + selectedFont);
+            }
+        });
+
+
+        $('#btnDecFont').click(function () {
+            var selectedFont = $('body').css('font-size');
+            if (selectedFont != "10px")  /*New code to fix the bug of decrease font size Reena Rana 29 Aug 2018*/
+                $('body').css('font-size', (parseInt(selectedFont) - 1));
+            else {
+                console.log("inseide else" + selectedFont);
+            }
+        });
+    </script>
+
+</b></b></body></html>

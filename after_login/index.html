@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<!-- saved from url=(0020)https://www.nvsp.in/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title></title>
+    
+
+    <link rel="icon" href="https://www.nvsp.in/Content/images/eci-icon.ico" type="image/x-icon">
+
+    
+    <!--[if IE]>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <![endif]-->
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- Custome style -->
+    
+    
+    
+    
+
+    <link href="./home_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    
+    <link href="./home_files/bootstrap-flatly.min.css" rel="stylesheet">
+    <link href="./home_files/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Font Awesome -->
+    
+    
+    
+<link rel="stylesheet" href="./home_files/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    
+    
+    
+    <link rel="stylesheet" href="./home_files/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link href="./home_files/animations.css" rel="stylesheet">
+    <link href="./home_files/fonts.css" rel="stylesheet">
+    <link href="./home_files/main.css" rel="stylesheet" class="color-switcher-link">
+
+    
+    
+    
+    <script src="./home_files/jquery.js.download" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+    
+    
+    <script src="./home_files/bootstrap.bundle.min.js.download" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!--[if lt IE 9]>
+      <script src="js/vendor/html5shiv.min.js"></script>
+      <script src="js/vendor/respond.min.js"></script>
+      <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <![endif]-->
+
+    
+    <style>
+        .label-danger {
+            color: #fff;
+            background-color: #f1200a;
+        }
+
+        .line-height-body-default {
+            line-height: 0.67em;
+        }
+
+        .mainColor li {
+            color: white;
+        }
+    </style>
+
+    <style>
+        /*.form-control {
+          padding: 6px 5px !important;
+        }*/
+    </style>
+</head>
+<body>
+    <input type="hidden" id="hdnLanguageArray">
+    
+
+    <div id="dvLoading2" class="lds-dual-ring" style="z-index: 7000; display: none;"></div>
+    <div class="clearfix"></div>
+
+    <!--[if lt IE 9]>
+      <div class="bg-danger text-center">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/" class="highlight">upgrade your browser</a> to improve your experience.</div>
+    <![endif]-->
+    <!--Modals start-->
+    <!--knowAcModal By Sayali-->
+
+    <div id="knowAcModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="row">
+                        <div class="col-md-11 text-center">
+                            <h4 class="modal-title">
+                                Map
+                            </h4>
+                        </div>
+                        <div class="col-md-1 text-right">
+                            <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">×</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div id="know_my_AC_partial"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- eof .modal -->
+    <div id="canvas">
+        <div id="box_wrapper">
+
+            <div class="page_header_wrapper header_white" style="height: 102.5px;"><header class="page_header header_white toggler_right">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-5 col-sm-12">
+                            <a href="index.html" class="logo top_logo">
+
+                                <img src="./home_files/logo.png">
+                            </a>
+                        </div>
+
+                        <div class="col-md-7 col-sm-12">
+
+                            <!-- main nav start -->
+                            <nav class="mainmenu_wrapper text-right">
+                                <ul class="mainmenu sf-menu">
+                                        <li class="active">
+                                            <a href="index.html">Home</a>
+                                        </li>
+                                        <li>
+                                            <a href="About.html">About Us   </a>
+                                        </li>
+                                    
+                                            <li>
+                                                <a href="Dashboard.html">Dashboard</a>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user-o"></i><span class="caret"></span></a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="UserProfile.php">My Profile</a></li>
+                                                    <li>
+                                                        <a href="LogOut.php" id="login">Logout</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                </ul>
+                            </nav>
+                            <!-- eof main nav -->
+                            <!-- header toggler -->
+                            <span class="toggle_menu">
+                                <span></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </header></div>
+
+
+
+            <section class="ls section-content-min-height toppadding_10">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        
+                    </ul>
+                </div>
+                
+    
+
+
+    <section class="ls section_padding_top_20 section_padding_bottom_10">
+        <div class="container-fluid" style="margin:0 10px">
+
+
+            <!--start conatiner-->
+            <div class="isotope_container isotope row masonry-layout columns_margin_bottom_20" style="position: relative; height: 553.953px;">
+                <div class="row" style="position: absolute; left: 0%; top: 0px;">
+                    <div class="col-sm-3">
+                        <!--start left side-->
+                        
+
+                        <div class="after_cover hoverable-banner overflow_hidden">
+
+
+                                <div class="panel">
+                                    <ul class="list-group">
+                                        <li class="list-group-item active" style="font-size:1.6rem">Welcome : What would you like to do?</li>
+                                        <li class="list-group-item">
+                                            <a id="form6" href="FormsIndex.html" value="Form6" class="btn btn-success btn-block">
+                                                <label id="lblChangeAddress">
+                                                    
+                                                    Register as a New Elector/Voter 
+                                                </label>
+                                            </a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <a id="form6" href="FormsIndex.html" value="Form6" class="btn btn-info btn-block">
+                                                <label id="lblChangeAddress">
+                                                   
+                                                    Register as Overseas Elector/Voter
+                                                </label>
+                                            </a>
+                                        </li>
+
+                                            <li class="list-group-item">
+                                                <a id="form6b" href="#" class="option_epic btn  btn-danger btn-block option_epic" value="Form7">
+                                                    <label id="lblDeletion">
+                                                        Information of Aadhaar <br>Number by Existing Electors
+                                                    </label>
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a id="form8" href="#" class="option_epic btn  btn-warning btn-block option_epic" value="Form8">
+                                                    <label id="lblCorrection_PInfo">
+                                                        Application for Correction/Shifting/ <br>Duplicate EPIC and Marking of PwD
+                                                    </label>
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a id="form7" href="#" class="option_epic btn  btn-danger btn-block option_epic" value="Form7">
+                                                    <label id="lblDeletion">
+                                                        Objection and self Deletion
+                                                    </label>
+                                                </a>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <a id="EEPICdownload" class="btn btn-sm btn-block btn-info" href="#">Download E-epic </a>
+
+                                            </li>
+
+                                        
+                                    </ul>
+                                </div>
+
+
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="col-sm-9">
+                        <!--start right side-->
+                        <div>
+                            <div class="row">
+
+
+
+
+                                <div class="isotope-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="with_padding rounded overflow_hidden main_bg_color3 after_cover with_radial_highlight hoverable-banner with_image" style="background-size: 100%;background-color: #00b050;">
+                                        <div class="bg_teaser" style="background-image: url(&quot;/Content/images/banner6.png&quot;);">
+                                            <img src="./home_files/banner6.png">
+                                        </div>
+                                        <h4 class="semibold topmargin_5">
+                                            
+                                            
+                                            E-EPIC  <br>Download
+                                        </h4>
+
+                                        <div class="media-links">
+                                            <a href="#" class="abs-link"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="isotope-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="with_padding rounded overflow_hidden main_bg_color3 after_cover with_radial_highlight hoverable-banner with_image">
+                                        <div class="bg_teaser" style="background-image: url(&quot;/Content/images/banner1.png&quot;);">
+                                            <img src="./home_files/banner1.png">
+                                        </div>
+                                        <h4 class="semibold topmargin_0">
+                                            
+                                            
+                                            Search in<br>Electoral<br>Roll
+                                        </h4>
+
+                                        <div class="media-links">
+                                            <a href="#" class="abs-link" target="_blank" rel="noopener noreferrer"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="isotope-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="with_padding rounded overflow_hidden after_cover hoverable-banner with_image" style="background-size:100%;background-color:#2d2d81">
+                                        
+                                        <img src="./home_files/voter-portal.jpg">
+                                        
+                                        <div class="media-links">
+                                            <a href="#" target="_blank" class="abs-link" rel="noopener noreferrer"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="isotope-item col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                    <div class="with_padding rounded overflow_hidden main_bg_color after_cover with_radial_highlight hoverable-banner with_image">
+                                        <div class="bg_teaser" style="background-image: url(&quot;/Content/images/banner3.png&quot;);">
+                                            <img src="./home_files/banner3.png">
+                                        </div>
+                                        <h4 class="semibold topmargin_0 bottommargin_5">
+                                            
+                                            Forms
+                                        </h4>
+
+                                        <div class="media-links">
+                                            <a href="FormsIndex.html" class="abs-link"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="isotope-item col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="with_padding rounded overflow_hidden main_bg_color4 after_cover with_radial_highlight hoverable-banner with_image">
+                                        <div class="bg_teaser" style="background-image: url(&quot;/Content/images/banner5.png&quot;);">
+                                            <img src="./home_files/banner5.png">
+                                        </div>
+                                        <h4 class="semibold topmargin_0">
+                                            
+                                            
+                                            Download Electoral <br>Roll PDF
+                                        </h4>
+
+                                        <div class="media-links">
+                                            <a href="#" class="abs-link"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="isotope-item col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="with_padding rounded overflow_hidden main_bg_color5 after_cover with_radial_highlight hoverable-banner with_image">
+                                        <div class="bg_teaser" style="background-image: url(&quot;/Content/images/banner4.png&quot;);">
+                                            <img src="./home_files/banner4.png">
+                                        </div>
+                                        <h4 class="semibold topmargin_0">
+                                            
+                                            Know Your
+                                        </h4>
+                                        <ul class="mainColor">
+                                            <li>Assembly/Parliamentary <br>Constituency Details</li>
+                                            <li>BLO/Electoral Officers Details</li>
+                                            <li>Political Party Representative</li>
+                                        </ul>
+
+                                        <div class="media-links">
+                                            <a href="#" class="abs-link" target="_blank"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="isotope-item col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                    <div class="with_padding rounded overflow_hidden main_bg_color2 after_cover with_radial_highlight hoverable-banner with_image">
+                                        <div class="bg_teaser" style="background-image: url(&quot;/Content/images/banner2.png&quot;);">
+
+                                            <img src="./home_files/banner2.png">
+                                        </div>
+                                        <h4 class="semibold topmargin_0">
+                                            
+                                            Track <br>Application <br>Status
+                                        </h4>
+
+                                        <div class="media-links">
+                                            <a href="#" target="_blank" class="abs-link"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="ds parallax clear_parallax page_features columns_margin_bottom_30">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="thin" style="font-size:22px; color:white;">Other Important Links</h2>
+
+                    <a href="#" class="theme_button color1" target="_blank" rel="noopener noreferrer">
+                        <img src="./home_files/i1.png">Link to States/UT CEO's
+                    </a>
+                    <a href="#" class="theme_button color2" rel="noopener noreferrer">
+                        <img src="./home_files/i2.png"> Voter Education
+                    </a>
+                    <a href="#" class="theme_button color1" target="_blank" rel="noopener noreferrer">
+						<img src="./home_files/i3.png"> Polling Process
+                    </a>
+                    <a href="#" class="theme_button color2" target="_blank" rel="noopener noreferrer">
+                        <img src="./home_files/i4.png">EVM Machine
+                    </a>
+                    <a href="#" class="theme_button color1" target="_blank" rel="noopener noreferrer">
+                        <img src="./home_files/i6.png">Complaints &amp; Suggestions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="NVSP_Modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-body">
+                    <div id="nvsp_info">
+                        <div id="welcomeDialog" style="margin-top: 0px;">
+                            <div class="main" style="background-color: white;color: black;">
+                                <div style="padding:15px 15px 15px;border: 4px solid rgb(42, 127, 200);color: white;">
+                                    <h4 style="color: rgb(234, 99, 99);">Welcome to Electors Verification Program</h4>
+
+                                    <div style="text-align: right">
+                                        <input style="background-color: #ED5757; color: white;max-width: 12.6em;white-space: normal; padding-left: 2.2em; padding-right: 2.2em;" type="button" id="continue" value="जारी रखें Continue" class="" data-dismiss="modal">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+            </section>
+
+            
+                <footer class="page_footer ds columns_padding_25">
+                    <div class="container-fluid toppadding_20">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-12">
+                                <div class="widget widget_text bottommargin_10">
+                                    <a href="#" class="logo top_logo small_logo 0">
+
+
+                                        <span class="site-name black">
+                                            <span class="">
+                                                Contact Us
+                                            </span>
+                                        </span>
+                                    </a>
+                                    <p class="bottommargin_0">
+                                        For details of eligibility criteria or any other additional information related to electoral forms, kindly visit <a href="https://eci.gov.in/" rel="noopener noreferrer"><b class="link animate">https://eci.gov.in</b></a> 
+                                    </p>
+                                    <p class="bottommargin_0">
+                                         For any other technical feedback or issues on the portal kindly send your feedback to
+
+                                        <a href="#" target="_top" rel="noopener noreferrer">
+
+                                                <b class="techlink animate">
+                                                    ECI Technical Support
+                                                </b>
+                                        </a> 
+                                    </p>
+                                    <div>
+
+                                        <div class="media small-teaser">
+                                            <div class="media-left">
+                                                <img src="./home_files/i5.png">
+                                            </div>
+                                            <div class="media-body">
+                                                Toll free Number :1800111950
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          
+                            <div class="col-md-5 col-sm-6">
+                                <div class="widget widget_popular">
+
+                                    <span class="logo_text logo">
+                                        <span class="site-name black">
+                                            Other Links
+                                        </span>
+                                    </span>
+                                    <ul class="media-list">
+                                        <li class="media">
+
+                                            <div class="media-body">
+                                                <h4 style="line-height:2.6">
+                                                    <a href="#" target="_blank" rel="noopener noreferrer">
+                                                        Election Commission of India
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </li>
+                                        <li class="media">
+
+                                            <div class="media-body">
+                                                <h4 style="line-height:2.6">
+                                                    <a href="#">
+                                                        Chief Electoral Officer
+                                                    </a>
+                                                </h4>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+                </footer>
+
+            <section class="ds page_copyright section_padding_15 with_top_border_container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 text-center text-white">
+                            <p>National Voter's Service Portal © Copyright 2019. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- eof #box_wrapper -->
+    </div>
+
+    <!-- jquery-ui -->
+    
+    
+    <script src="./home_files/jquery-ui.min.js.download" integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA=" crossorigin="anonymous"></script>
+    <script src="./home_files/compressed.js.download" async=""></script>
+    <script src="./home_files/main.js.download"></script>
+    
+
+    
+    
+    
+    
+    <script src="./home_files/jquery.validate.min.js.download" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--Toaster-->
+    <script src="./home_files/jquery.toast.min.js.download" integrity="sha512-zlWWyZq71UMApAjih4WkaRpikgY9Bz1oXIW5G0fED4vk14JjGlQ1UmkGM392jEULP8jbNMiwLWdM8Z87Hu88Fw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./home_files/jquery.toast.min.css" integrity="sha512-wJgJNTBBkLit7ymC6vvzM1EcSWeM9mmOu+1USHaRBbHkm6W9EgM0HY27+UtUaprntaYQJF75rc8gjxllKs5OIQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <script src="./home_files/toasterNotifications.js.download"></script>
+
+    
+    
+    
+    
+    
+
+    <link href="./home_files/toastr.css" rel="stylesheet">
+    <script src="./home_files/toastr.min.js.download"></script>
+
+    
+    <script>
+        //function preventBack() {
+        //    window.history.forward();
+        //}
+        //setTimeout("preventBack()", 0);
+
+        setTimeout(function () {
+            window.history.forward();
+        }, 0);
+
+        window.onunload = function () { null };
+
+
+
+        window.onpopstate = function (e) {
+            var lastEntry = customHistory.pop();
+            history.pushState(lastEntry.data, lastEntry.title, lastEntry.location);
+            // load the last entry
+        }
+        //location.reload(true);
+
+        function setErrorMsg(other_lang, form_name) {
+            
+            // by default hindi and english both
+            var en_lang = $("input[name=en_lang]:checked").val();
+            var language = $("#language option:selected").val();
+
+            /*
+            * User has unchecked english checked box and has not selected any regional language
+            then enable english bydefault
+            */
+
+            if (en_lang !== 'required' && language === "") {
+                en_lang = 'required';
+                language = '';
+            }
+            var displayFormInEnglishLanguage;
+            var displayFormInRegionalLanguage;
+
+            // If english checked and regional language not selected
+            if (en_lang === 'required' && language === "") {
+                displayFormInEnglishLanguage = 'eng';
+                displayFormInRegionalLanguage = '';
+            }
+            // If english checked and regional language  selected
+            if (en_lang === 'required' && language !== "") {
+                displayFormInEnglishLanguage = 'eng';
+                displayFormInRegionalLanguage = language;
+            }
+
+            // If english unchecked and regional language  selected
+            if (en_lang !== 'required') {
+                //// give support for regional  language
+                displayFormInEnglishLanguage = '';
+                displayFormInRegionalLanguage = language;
+            }
+            var url = "/"+ "?lang=" + other_lang;
+           
+            window.location.assign(url);
+        }
+        $(window).on("load", () => {
+             if ('en-GB' == '') {
+
+              $("#language").val('hin');
+          }
+          else {
+              v = 'en-GB';
+              $("#language").val('en-GB');
+          }
+        })
+    </script>
+
+        <script>
+      function Options(ele) {
+
+
+        if (ele.id == "form6"&&ele.id=="form6a")
+            window.location = '/Forms';
+        else if(ele.id == "RegisteredDeath")
+        {
+            var url = '/DeathEntry/Death_Details';
+            //url = url + "?form_type=" + ele.id;
+            window.location = url;
+        }
+        else {
+            console.log(ele.id)
+            if (ele.id == "form001" || ele.id== "form8" || ele.id == "Migration")
+            {
+                var newurl = '/RegisteredUser/FormsInputIndex';
+                newurl = newurl + "?form_type=form8" + "&epic_no=" + "self";
+                window.location = newurl;
+            }else if (ele.id == "form7") {
+                var newurl = '/RegisteredUser/FormsIndex';
+                newurl = newurl + "?form_type=form7" + "&epic_no=" + "self";
+                window.location = newurl;
+            } else {
+                 window.location = '/Forms';
+            }
+          
+        }
+      };
+
+        function showmsgfornoEpic() {
+            toastr.info("Please update your EPIC no. in profile, to enable form filling");
+        }
+
+    $(document).ready(function () {
+
+    });
+
+    function showUnavailableToast() {
+
+        showInfoToast("This facility will be available on <br/>25-January-2021 11:14 AM and onwards.");
+    }
+    function showekycUnavailableToast() {
+        showInfoToast("This facility will be available later.");
+    }
+
+        </script>
+
+
+    <script type="text/javascript">
+
+        $(".Datevalidate").change(function () {
+
+            var dateInput = $(this).val();
+            if (dateInput.length == 10) {
+                var dateReg = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{4})$/;
+                var data = dateInput.match(dateReg)
+                if (!data) {
+                    showWarningToast('Please enter valid date.');
+                    $(this).val('');
+                }
+            }
+            else {
+                showWarningToast('Please enter valid date.');
+                $(this).val('');
+            }
+        });
+
+        $('#btnIncFont').click(function () {
+            
+            var selectedFont = $('body').css('font-size');
+            if (selectedFont != "18px")    /*New code to fix the bug of increase font size Reena Rana 29 Aug 2018*/
+                $('body').css('font-size', (parseInt(selectedFont) + 1));
+            else {
+                console.log("inseide else" + selectedFont);
+            }
+        });
+
+
+        $('#btnDecFont').click(function () {
+            var selectedFont = $('body').css('font-size');
+            if (selectedFont != "10px")  /*New code to fix the bug of decrease font size Reena Rana 29 Aug 2018*/
+                $('body').css('font-size', (parseInt(selectedFont) - 1));
+            else {
+                console.log("inseide else" + selectedFont);
+            }
+        });
+        $(document).ready(function () {
+            document.addEventListener('contextmenu', event => event.preventDefault());
+        });
+    </script>
+
+<a href="#" id="toTop" style="display: none;"><span id="toTopHover"></span>To Top</a></body></html>
