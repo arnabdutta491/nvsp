@@ -115,7 +115,7 @@
                     </div>
 <form class="form-horizontal" id="VerifyOtp" method="post" role="form"><input id="q" name="token" type="hidden" value="">                        <div class="panel panel-primary" style="border-style:solid;box-shadow: 0 3px 8px 0 #ccc !important;">
                             <div class="panel-heading easternblue">
-                                <div class="panel-title text-center">Verify Mobile Number</div>
+                                <div class="panel-title text-center">Verify Email Address</div>
                             </div>
                             <div class="panel-body">
 
@@ -123,14 +123,19 @@
                                     <div class="col-md-2"></div>
                                     <div class="col-md-4">
                                         <label>
-                                            Enter mobile number
+                                            Enter Email Address
                                         </label>
                                     </div>
                                     <div class="col-md-4">
 
-                                        <input class="form-control" data-val="true" data-val-regex="Please enter valid mobile number" data-val-regex-pattern="^([6-9][0-9]{9}|\w{0})$" data-val-required="The Phone Number field is required." id="phonenumber" maxlength="10" min="6000000000" minlength="10" name="PhoneNumber" onkeypress="return isNumber(event)" type="text" value="">
+                                        <input class="form-control" data-val="true" data-val-regex="Please enter valid Email Address"
+                                        
+                                         data-val-required="The EMAIL field is required." 
+                                         id="phonenumber" 
+                                         name="PhoneNumber" type="email" value="">
                                         <div style="color:Red;margin-bottom:0px;text-align:center">
-                                            <span class="field-validation-valid field-validation-error" data-valmsg-for="PhoneNumber" data-valmsg-replace="true"></span>
+                                            <span class="field-validation-valid field-validation-error" data-valmsg-for="PhoneNumber" 
+                                            data-valmsg-replace="true"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-2"></div>
@@ -305,9 +310,8 @@
 			});
 
     });
-        $('#OtpSend').click(function () {
-            const regexExp = /^[6-9]\d{9}$/gi;
-            var phno = $("#phonenumber").val();
+        $('#OtpSend').click(function (e) {
+            var email = $("#phonenumber").val();
             $("#statusmessagelabel").text("")
             $("#alert").css('display', 'none')
             $('.verifyotp').css('display', 'none')
@@ -315,15 +319,15 @@
             document.getElementById('txtCaptcha').readOnly = false;
             document.getElementById('imgRefresh').hidden = false;
             var captcha = $("#txtCaptcha").val();
-            if (phno == null || phno == "") {
-                toastr.error("Please enter mobile no.");
+            if (email == null || email == "") {
+                toastr.error("Please enter Email Id no.");
                 return false;
             }
             else
             {
-                var res = validateMobileno(phno);
+                var res = validate_email(email);
                 if (res == false) {
-                    toastr.error("Please enter valid mobile no.")
+                    toastr.error("Please enter valid Email Id no.")
                     return false;
                 }
             }
@@ -332,19 +336,28 @@
                 toastr.error("Please Enter Captcha")
                 return false;
             }
-			var url1 = './Register_files/check_mobile.php?mobile='+$("#phonenumber").val();
+			var url1 = './Register_files/check_mobile.php';
 			$.ajax({
                 url: url1,
+                type:"POST",
+                data : {
+                    email : email
+                },
                 success: function (data) {
-					if(data == 'false'){
-						toastr.error("This mobile no. is already registered here before.")
+					if(!data){
+						toastr.error("This email is already registered to our rkmscc nvsp database.")
 						return false;
 					}
-                    else if (data == 'true')
+                    else if (data)
                     {
-                        var url = './Register_files/check_otp.php?c='+$("#txtCaptcha").val()+'&mobile='+$("#phonenumber").val();
+                        var url = './Register_files/check_otp.php';
 						$.ajax({
 							url: url,
+                            type:"POST",
+                            data : {
+                                email : email,
+                                txtCaptcha:$("#txtCaptcha").val()
+                            },
 							success: function (data) {
 								if(data == 'false'){
 									toastr.error("Invalid Captcha!")
@@ -363,25 +376,18 @@
                     }
                     else
                     {
-                        toastr.error("Something went wrong!!!")
+                        toastr.error("Something Error Accurced!!!")
                     }
 				}
             });
         });
-        function validateMobileno(mobileno) {
-            var success = false;
-            var len = mobileno.length;
-            var mobilepatt = new RegExp("^[6-9][0-9]{9}$");
-            if (len > 10)
+        function validate_email(e) {
+            var mobilepatt = new RegExp("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$");
+            var res = mobilepatt.test(e);
+            if (res == true)
+                success = true;
+            else
                 success = false;
-            else {
-                var res = mobilepatt.test(mobileno);
-                if (res == true)
-                    success = true;
-                else
-                    success = false;
-            }
-
             return success;
         }
         function isNumber(evt) {

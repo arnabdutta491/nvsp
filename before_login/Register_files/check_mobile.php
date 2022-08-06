@@ -1,15 +1,15 @@
 <?php
-	parse_str($_SERVER['QUERY_STRING'],$a);
+	$a = $_POST;
 	$con=mysql_connect("localhost","root");
 	if(!$con)
 		die("could not connect!".mysql_error());
 	mysql_select_db("nvsp",$con);
-	if($result=mysql_query("select * from users where mobile=".$a["mobile"],$con)){
+	if($result=mysql_query("select * from users where email=".$a["email"],$con)){
 		$num=mysql_num_rows($result);
 		if($num>0)
-			echo "false";
+			return false;
 		else
-			echo "true";
+			return true;
 	}
 	else
 		echo "error";

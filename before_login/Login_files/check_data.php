@@ -1,7 +1,8 @@
 <?php
 	session_start();
 	// parse_str($_SERVER['QUERY_STRING'],$a);
-	$s=$_POST['uname'];
+	$a = $_POST;
+	$s=$a['uname'];
 	$isnum=true;
 	for($i=0;$i<strlen($s);$i++){
 		if($s[$i]>='0' && $s[$i]<='9')
@@ -16,7 +17,7 @@
 		die("could not connect!".mysql_error());
 	mysql_select_db("nvsp_ad",$con);
 	if($isnum==true){
-		if($result=mysql_query("select * from users where (mobile=".$a["data"]." or email='".$a["data"]."') and password='".$a["pwrd"]."' limit 1",$con)){
+		if($result=mysql_query("select * from users where (mobile=".$a["uname"]." or email='".$a["uname"]."') and password='".$a["pwd"]."' limit 1",$con)){
 			$num=mysql_num_rows($result);
 			if($num>0){
 				$row=mysql_fetch_array($result);
@@ -26,17 +27,17 @@
 				$_SESSION['epic']=$row["epic"];
 				$_SESSION['email']=$row["email"];
 				$_SESSION['password']=$row["password"];
-				echo "true";
+				return true;
 			}
 			else
-				echo "false";
+				return false;
 		}
 		else{
 			echo "error1";
 		}
 	}
 	else{
-		if($result=mysql_query("select * from users where email='".$a["data"]."' and password='".$a["pwrd"]."' limit 1",$con)){
+		if($result=mysql_query("select * from users where email='".$a["uname"]."' and password='".$a["uname"]."' limit 1",$con)){
 			$num=mysql_num_rows($result);
 			if($num>0){
 				$row=mysql_fetch_array($result);
@@ -46,10 +47,10 @@
 				$_SESSION['epic']=$row["epic"];
 				$_SESSION['email']=$row["email"];
 				$_SESSION['password']=$row["password"];
-				echo "true";
+				return true;
 			}
 			else
-				echo "false";
+				return false;
 		}
 		else
 			echo "error2";
