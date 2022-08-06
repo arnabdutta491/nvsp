@@ -1,33 +1,49 @@
 <?php
 	session_start();
-	parse_str($_SERVER['QUERY_STRING'],$data);
+	// parse_str($_SERVER['QUERY_STRING'],$data);
+	$data  = $_POST;
+	echo json_encode($data);
 	$con=mysql_connect("localhost","root");
 	if(!$con)
 		die("could not connect!".mysql_error());
-	mysql_select_db("nvsp",$con);
+	mysql_select_db("nvsp_ad",$con);
 	if($data['isepic']=="True"){
-		if($result=mysql_query("select * from users where epic='".$data['epic']."'",$con)){
+		if($result=mysql_query("select * from users where epic='".$data['epic']."' or email = '".$_SESSION["email"]."'",$con)){
 			$num=mysql_num_rows($result);
 			if($num>0){
-				echo "epic_exist";
+				return 5;
 			}
 			else{
-				$query="insert into users values(".$_SESSION["mobile"].",'','','".$data['epic']."','".$data['email']."','".$data['pwrd']."')";
+				$query="insert into users values('".$data['phno']."','','','".$data['epic']."','".$_SESSION["email"]."','".$data['pwrd']."')";
+				echo json_encode($query);
 				if(mysql_query($query,$con))
-					echo "successful";
+					return 1;
 				else
-					echo mysql_error();
+					return 3;
 			}
 		}
 		else
-			echo mysql_error();
+			return 3;
 		
 	}
+	
 	else{
-		$query="insert into users values(".$_SESSION["mobile"].",'".$data['first']."','".$data['last']."','','".$data['email']."','".$data['pwrd']."')";
+		$epic = create_epic();
+		$query="insert into `users` (`mobile`,`first`,`last`,`email`,`password`,`epic`) values('".$data['phno']."','".$data['first']."','".$data['last']."','".$_SESSION["email"]."','".$data['pwrd']."','".$epic."')";
 		if(mysql_query($query,$con))		
-			echo "successful";
+			return 1;
 		else
-			echo mysql_error();
+			return 3;
+	}
+	function create_epic()
+	{
+		$word = array_merge(range('A', 'Z'));
+		shuffle($word);
+		$w = substr(implode($word), 0, 3);
+		$num = array_merge(range(0,9));
+		shuffle($num);
+		$n = substr(implode($num), 0, 5);
+
+		return $w.$n;
 	}
 ?>

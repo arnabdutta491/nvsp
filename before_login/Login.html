@@ -307,12 +307,12 @@
                                 pwd:txtpassword},
 						success: function (response) {
                             console.log("response : "+response)
-							if(response=="true"){
+							if(response){
 								var url = './Login_files/check_otp.php?c='+captcha;
 								$.ajax({
 									url: url,
 									success: function (response) {
-										if(response=="true"){
+										if(response){
 											document.location="../after_login";
 										}
 										else if(response=="false"){
