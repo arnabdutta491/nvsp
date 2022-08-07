@@ -1,8 +1,6 @@
 <?php
 	session_start();
-	// parse_str($_SERVER['QUERY_STRING'],$data);
 	$data  = $_POST;
-	echo json_encode($data);
 	$con=mysql_connect("localhost","root");
 	if(!$con)
 		die("could not connect!".mysql_error());
@@ -11,19 +9,19 @@
 		if($result=mysql_query("select * from users where epic='".$data['epic']."' or email = '".$_SESSION["email"]."'",$con)){
 			$num=mysql_num_rows($result);
 			if($num>0){
-				return 5;
+				echo 5;
 			}
 			else{
 				$query="insert into users values('".$data['phno']."','','','".$data['epic']."','".$_SESSION["email"]."','".$data['pwrd']."')";
 				echo json_encode($query);
 				if(mysql_query($query,$con))
-					return 1;
+					echo 1;
 				else
-					return 3;
+					echo 3;
 			}
 		}
 		else
-			return 3;
+			echo 3;
 		
 	}
 	
@@ -31,10 +29,11 @@
 		$epic = create_epic();
 		$query="insert into `users` (`mobile`,`first`,`last`,`email`,`password`,`epic`) values('".$data['phno']."','".$data['first']."','".$data['last']."','".$_SESSION["email"]."','".$data['pwrd']."','".$epic."')";
 		if(mysql_query($query,$con))		
-			return 1;
+			echo 1;
 		else
-			return 3;
+			echo 3;
 	}
+	
 	function create_epic()
 	{
 		$word = array_merge(range('A', 'Z'));

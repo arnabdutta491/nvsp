@@ -244,7 +244,7 @@
                             <div class="form-group">
                                 <div class="col-md-12" style="margin-bottom:5px;">
                                     <button id="register_btn" class="btn btn-primary btn-block login-button">
-                                        Register
+                                        Register Yourself
                                     </button>
 
                                 </div>
@@ -414,6 +414,7 @@
             }
         });
 		$('#register_btn').click(function (e) {
+            e.preventDefault()
 			if(validate()==false){
 				return false;
 			}
@@ -431,32 +432,39 @@
 				rd_val=rd[1].value;
 			}
 			var url = './register_data/add_user.php';
-			$.ajax({
-				url: url,
-                type:"POST",
-                data:{
+            const p ={
                     isepic : rd_val,
                     first : f_name,
                     last : l_name,
                     phno : em,
                     epic : ep_no,
                     pwrd : ps
-                },
+            }; 
+			$.ajax({
+				url: url,
+                type:"POST",
+                data:p,
 				success: function (response) {
-                    console.log("respose : ",response);
+                    // console.log("respose : ",response);
+                    // alert(response)
                     e.preventDefault()
 					if(response==5){
-                        alert()
                             toastr.error('Epic is already exist!');
 					}else if(response == 1){
-						toastr.success("Registration successfully.");
-						document.location='Login.html';
+                        toastr.success("User Registration Successfull.");   
+				
+                        setInterval(() => {
+                            document.location='Login.html';
+                        }, 2000);
+						
 					}else{
 						toastr.error("Something Problem occoiurs");
                         location.reload()
 					}
 				},
-				error: function (error) { }
+				error: function (error) {
+                    alert("bal")
+                 }
 			});
 		});
     </script>
