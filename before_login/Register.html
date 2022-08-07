@@ -336,6 +336,7 @@
                 toastr.error("Please Enter Captcha")
                 return false;
             }
+            // e.preventDefault();
 			var url1 = './Register_files/check_mobile.php';
 			$.ajax({
                 url: url1,
@@ -344,11 +345,11 @@
                     email : email
                 },
                 success: function (data) {
-					if(!data){
+					if(data == false){
 						toastr.error("This email is already registered to our rkmscc nvsp database.")
 						return false;
 					}
-                    else if (data)
+                    else if (data == true)
                     {
                         var url = './Register_files/check_otp.php';
 						$.ajax({

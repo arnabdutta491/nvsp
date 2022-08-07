@@ -27,10 +27,10 @@
 				$_SESSION['epic']=$row["epic"];
 				$_SESSION['email']=$row["email"];
 				$_SESSION['password']=$row["password"];
-				return true;
+				echo true;
 			}
 			else
-				return false;
+				echo false;
 		}
 		else{
 			echo "error1";
@@ -47,10 +47,10 @@
 				$_SESSION['epic']=$row["epic"];
 				$_SESSION['email']=$row["email"];
 				$_SESSION['password']=$row["password"];
-				return true;
+				echo true;
 			}
 			else
-				return false;
+				echo false;
 		}
 		else
 			echo "error2";
