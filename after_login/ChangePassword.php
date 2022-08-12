@@ -341,7 +341,7 @@
                 if (res_opass && res_pass && res_cpass)
                     return true;
                 else {
-                    toastr.error("Password does not match password pattern.");
+                    alert("Password does not match password pattern.");
 					return false;
                     //event.preventDefault();
                 }
@@ -368,7 +368,8 @@
                  else
                      event.preventDefault();
             }
-			$('#chg_psd').click(function(){
+			$('#chg_psd').click(function(e){
+                e.preventDefault();
 				var txtoldpassword = document.getElementById("oldPassword").value.trim();
 				var txtpassword = document.getElementById("NewPassword").value.trim();
 				var txtconfirmpassword = document.getElementById("ConfirmPassword").value.trim();
@@ -385,6 +386,7 @@
 						$.ajax({
 							url:url,
 							success:function(response){
+                                // alert(response)
 								if(response=='true'){
 									alert('password changed successfully');
 									document.location='UserProfile.php';

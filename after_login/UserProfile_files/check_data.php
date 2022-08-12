@@ -2,7 +2,7 @@
 	session_start();
 	parse_str($_SERVER['QUERY_STRING'],$a);
 	$con=mysql_connect("localhost","root");
-	mysql_select_db('nvsp',$con);
+	mysql_select_db('nvsp_ad',$con);
 	$result=mysql_query("select * from users where mobile=".$a['mobile'],$con);
 	$num=mysql_num_rows($result);
 	if($a['mobile']!=$_SESSION['mobile'] && $num>0)
