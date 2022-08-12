@@ -128,7 +128,8 @@
                                     </div>
                                     <div class="col-md-4">
 
-                                        <input class="form-control" data-val="true" data-val-regex="Please enter valid Email Address"
+                                        <input class="form-control" data-val="true" 
+                                        data-val-regex="Please enter valid Email Address"
                                         
                                          data-val-required="The EMAIL field is required." 
                                          id="phonenumber" 
@@ -166,6 +167,71 @@
                             </div>
                         </div>
 </form>                </div>
+
+    <div class="form-group col-md-12"><br /><br />
+        <div id="OTPView" class="col-md-12" style="display: none;">
+        <div class="row">
+            <label class="col-md-3 col-md-offset-1 control-label" for="Code">Enter OTP</label>
+            <div class="col-md-6">
+                <div class="col-md-8">
+                    <input class="form-control col-md-6" data-val="true" 
+                    data-val-required="The Enter OTP field is required." id="Code" name="Code" type="text" 
+                    maxlength="6" value="">
+                </div>
+                <div class="col-md-4 ">
+                    <input id="verifyOTP2" type="button" class="btn btn-info" value="Verify" >
+                </div>
+            </div>
+
+        </div>
+
+</div>
+<script>
+    function SendOTP (){
+                toastr.success("otp sent to Entered email address");
+                $.ajax({
+                    url: "../otp/otp.php",
+                    type : "POST",
+                    data : {"id":1,
+                    email:$("#phonenumber").val()},
+                    success: function (res) {
+                        // console.log("RESPONSE : ",res)
+                        document.getElementById("OTPView").style.display = "block";
+                    }
+                })
+            }
+            $("#verifyOTP2").click(function (e) {
+                $.ajax({
+                    url: "../otp/otp.php",
+                    type : "POST",
+                    data : {"id":2,
+                    email:$("#phonenumber").val(),
+                    otp : $("#Code").val()},
+                    success: function (res) {
+                        res = JSON.parse(res)
+                        console.log("RESPONSE : ",res)
+                        console.log("RESPONSE : ",typeof(res))
+                        // console.log(Json.str)
+                        if (res.id == "2")
+                        {
+                            // 
+                            toastr.success("OTP Matched");
+                            setTimeout(() => {
+                                window.location = 'register_data.html';
+                            }, 2500);
+                        }
+                        else if (res.id == "3")
+                        {
+                            alert("otp doesnot Match We are reloading the page");
+                        }
+                        else{
+                            document.getElementById("OTPView").style.display = "none";
+
+                        }
+                    }
+                })                
+            })
+</script>
                 <input type="hidden" id="t" data-value="DE0F21385EAB8BE0AA051BFE744508ADA39E8C91A16568310588D4695CF7C61DAC08121F7D4E805008F16F6B1C86E86BCD47F6E8E61EEC5542EE5A3CDEB73E54">
                 <div class="col-md-2"></div>
             </div>
@@ -366,7 +432,8 @@
 								}
 								else if (data == 'true')
 								{
-									document.location='register_data.html';
+                                    SendOTP();
+									// document.location='register_data.html';
 								}
 								else
 								{

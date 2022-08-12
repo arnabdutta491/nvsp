@@ -313,13 +313,12 @@
                                         <label class="control-label">
                                             Please authenticate using OTP verification.
                                         </label>
-
-                                        <button type="button" id="SendOTPbtn" onclick="SendOTP();" 
-                                        class="btn btn-info col-md-offset-1">Send OTP</button><br />
+                                        <button type="button" id="SendOTPbtn" onclick="SendOTP();" class="btn btn-info col-md-offset-1">Send OTP</button><br />
                                         <span>Note: OTP will be sent to the registered Email Address <span id="email_show"></span></span>
                                         <span id="txtmobileno"></span>
 
                                     </div>
+    </div>
                                     <div class="" id="div_otp" display="none">
                                         <div class="form-group col-md-12"><br /><br />
                                             <div id="OTPView" class="col-md-12" style="display: none;">
@@ -332,7 +331,7 @@
                                                         maxlength="6" value="">
                                                     </div>
                                                     <div class="col-md-4 ">
-                                                        <input id="verifyOTP" type="button" class="btn btn-info" value="Verify" >
+                                                        <input id="verifyOTP2" type="button" class="btn btn-info" value="Verify" >
                                                     </div>
                                                 </div>
 
@@ -340,6 +339,8 @@
 
                                         </div>
                                     </div>
+
+                                    
                         
 
                     <div id="statusmessage_parent" class="col-md-8 col-sm-8 col-md-offset-2 card card-default" style="display:none">
@@ -347,11 +348,24 @@
                             <label class="control-label" id="statusmessagelabel"></label>
                         </div>
                     </div>
+                    <div id="downloaddiv" style= "display:none;">
+                        <div class="form-group col-md-12"><br /><br />
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="col-md-4 ">
+                                        <!-- <img id="imageToSwap" src="../voter_card_data/id.pdf" width = "40px"/> -->
+                                        <input id="download" down type="button" class="btn btn-info" value="Download Your 
+                                        Voter Card as PDF" >
+                                    </div>
 
+                            </div>
 
-                    <div id="downloaddiv">
+                        </div>
 
                     </div>
+
+
+                    
 
                 </div>
                 <div class="modal" id="epicModal" role="dialog">
@@ -377,6 +391,15 @@
     </div>
     <script src="after_login\home_files\jquery.js.download"></script>
     <script src="before_login\Content\js\jquery.js"></script>
+
+    <!-- <div id="mypdf">
+  <div>
+    My Pdf Content Here
+  </div>
+</div
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
+<script src="http://mrrio.github.io/jsPDF/dist/jspdf.debug.js"></script> -->
  </section>
 
         <script>
@@ -397,6 +420,8 @@
                             document.getElementById("isOTPVerification").style.display = "block";
                             email = JSON.parse(res).data;
                             document.getElementById("email_show").innerHTML = email;
+                            // document.getElementById("downloaddiv").style.display = "block";
+
                         }
                         else{
                             document.getElementById("divdetail").style.display = "none";
@@ -417,12 +442,14 @@
                     data : {"id":1,
                     email:email},
                     success: function (res) {
-                        console.log("RESPONSE : ",res)
+                        // console.log("RESPONSE : ",res)
                         document.getElementById("OTPView").style.display = "block";
                     }
                 })
             }
-            $("#verifyOTP").click(function (e) {
+            $("#verifyOTP2").click(function (e) {
+                // alert()
+                console.log($("#Code").val())
                 $.ajax({
                     url: "../otp/otp.php",
                     type : "POST",
@@ -430,10 +457,35 @@
                     email:email,
                     otp : $("#Code").val()},
                     success: function (res) {
+                        res = JSON.parse(res)
                         console.log("RESPONSE : ",res)
-                        document.getElementById("OTPView").style.display = "none";
+                        console.log("RESPONSE : ",typeof(res))
+                        // console.log(Json.str)
+                        if (res.id == "2")
+                        {
+                            // 
+                            toastr.success("OTP Matched");
+                            document.getElementById("OTPView").style.display = "none";
+                            document.getElementById("isOTPVerification").style.display = "none";
+
+                            document.getElementById("downloaddiv").style.display = "block";
+                        }
+                        else if (res.id == "3")
+                        {
+                            alert("otp doesnot Match We are reloading the page");
+                        }
+                        else{
+                            document.getElementById("OTPView").style.display = "none";
+
+                        }
                     }
                 })                
+            })
+            $("#download").click(function(e) {
+                alert("Download success Voter Card");
+                window.open("../voter_card_data/id.pdf", '_blank');
+                window.location.reload();
+                   
             })
         </script>
 
